@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Játékok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Játékok</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Azonosító</th>
+                <th>Játék neve</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% jatekok.forEach(j => { %>
+            <tr>
+                <td><%= j.id %></td>
+                <td><%= j.nev %></td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
