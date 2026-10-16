@@ -29,7 +29,22 @@ export class AppService {
   }
 
   async getMacskaBySzemSzin(szemszin: string) {
+    const [rows] = await mysqlConnection.execute('SELECT id, suly, szem_szin, gazdi_id, jatek_id FROM macskak WHERE szem_szin = ?', [szemszin])
+      return rows
+  }
 
+  async createJatek(nev: string){
+    if (typeof nev !== 'string' || nev.trim() === '') {
+      return null;
+    }
+
+    const jatekNev = nev.trim();
+    const [results] = await mysqlConnection.execute(
+      'INSERT INTO jatekok (nev) VALUES (?)', [jatekNev],);
+    const rows = results as any
+    return{
+      id: rows.insertId, nev
+    } as Jatek
   }
 
 }

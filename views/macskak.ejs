@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Macskák</h1>
+    <form action="/macskaKeres" method="get">
+        <label for="szemszin">Keresés szemszín alapján:</label>
+        <input type="text" id="szemszin" name="szemszin" value="<%= szemszin %>">
+        <button type="submit">Keresés</button>
+    </form>
     <table class="table table-bordered">
         <thead>
             <tr>
